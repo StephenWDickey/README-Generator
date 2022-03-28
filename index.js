@@ -19,7 +19,7 @@ const questions = [
     {
         type: "input",
         name: "Description",
-        message: "Enter a description of your project",
+        message: "Enter a description of your project:",
     },
     {
         type: "input",
@@ -30,6 +30,16 @@ const questions = [
         type: "input",
         name: "Usage",
         message: "Enter usage instructions",
+    },
+    {
+        type: "list",
+        name: "License",
+        message: "License",
+        choices: [
+            "MIT License",
+            "Apache License 2.0",
+            "Mozilla Public License 2.0",
+        ],
     },
     {
         type: "input",
@@ -44,23 +54,14 @@ const questions = [
     {
         type: "input",
         name: "Email",
-        message: "💌 What is your email?",
+        message: "What is your email?",
     },
     {
         type: "input",
         name: "GitHub",
         message: "What is your GitHub username?",
     },
-    {
-        type: "list",
-        name: "License",
-        message: "License",
-        choices: [
-            "MIT License",
-            "Apache License 2.0",
-            "Mozilla Public License 2.0",
-        ],
-    },
+    
 ];
 
 // function to write README file
@@ -73,10 +74,11 @@ function writeToFile(fileName, data) {
     toWrite.push(generateMarkdown.projectDescription(data.Description));
     toWrite.push(generateMarkdown.projectInstallation(data.Installation));
     toWrite.push(generateMarkdown.projectUsage(data.Usage));
+    toWrite.push(generateMarkdown.projectLicense(data.License, data.Author));
     toWrite.push(generateMarkdown.projectContributors(data.Contributors));
     toWrite.push(generateMarkdown.projectTesting(data.Testing));
     toWrite.push(generateMarkdown.projectContact(data.Email, data.GitHub));
-    toWrite.push(generateMarkdown.projectLicense(data.License, data.Author));
+    
 
     toWrite.forEach((item) => {
         fs.appendFileSync(fileName, item, (err) => {
