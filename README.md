@@ -1,7 +1,7 @@
 # Project Title: README GENERATOR 
 
-![recording of application function](./assets/Module9applicationrecording.webm)
-![recording of a generated README.md](./assets/Module9generatedreadme.webm)
+![recording of application function](./assets/Module9applicationrecording.gif)
+![recording of a generated README.md](./assets/Module9generatedreadme.gif)
 
 ## Description 
 In this week's challenge we were tasked with using Node.js to generate README.md files based on user input!
