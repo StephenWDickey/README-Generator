@@ -1,7 +1,7 @@
 // required and imported modules
 const fs = require("fs");
 const inquirer = require("inquirer");
-const generateHTML = require("./src/generateHTML.js");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // array of questions for user
 const questions = [
@@ -9,37 +9,37 @@ const questions = [
         /* Pass user questions in here */
         type: "input",
         name: "Title",
-        message: "💡 What is the title of your project?",
+        message: "What is the title of your project?",
     },
     {
         type: "input",
         name: "Author",
-        message: "👤 Who is the author of this readme/project?",
+        message: "Who is the author of this readme/project?",
     },
     {
         type: "input",
         name: "Description",
-        message: "📃 Enter a description of your project",
+        message: "Enter a description of your project",
     },
     {
         type: "input",
         name: "Installation",
-        message: "📦 Enter installation instructions",
+        message: "Enter installation instructions",
     },
     {
         type: "input",
         name: "Usage",
-        message: "🚀 Enter usage instructions",
+        message: "Enter usage instructions",
     },
     {
         type: "input",
         name: "Contributors",
-        message: "🛠  How would like others to contribute?",
+        message: "How would like others to contribute?",
     },
     {
         type: "input",
         name: "Testing",
-        message: "✅ Enter commands to test",
+        message: "Enter commands to test",
     },
     {
         type: "input",
@@ -49,12 +49,12 @@ const questions = [
     {
         type: "input",
         name: "GitHub",
-        message: "👤 What is your GitHub username?",
+        message: "What is your GitHub username?",
     },
     {
         type: "list",
         name: "License",
-        message: "📝 License",
+        message: "License",
         choices: [
             "MIT License",
             "Apache License 2.0",
@@ -86,7 +86,7 @@ function writeToFile(fileName, data) {
     });
 }
 
-// function to initialize program
+// prompt user with questions, save questions to array
 function init() {
     // inquirer.prompt(
     inquirer
